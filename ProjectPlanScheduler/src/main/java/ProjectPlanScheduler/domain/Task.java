@@ -7,16 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private long id;
-	@ManyToOne
-	@JoinColumn(name = "project_id")
-	private ProjectPlan projectPlan;
+	@JoinColumn(name = "project_plan_id")
+	private long projectPlanId;
 	private String taskName;
 	private Date startDate;
 	private Date endDate;
@@ -135,16 +133,16 @@ public class Task {
 		this.seq = seq;
 	}
 	/**
-	 * @return the projectPlan
+	 * @return the projectPlanId
 	 */
-	public ProjectPlan getProjectPlan() {
-		return projectPlan;
+	public long getProjectPlanId() {
+		return projectPlanId;
 	}
 	/**
-	 * @param projectPlan the projectPlan to set
+	 * @param projectPlanId the projectPlanId to set
 	 */
-	public void setProjectPlan(ProjectPlan projectPlan) {
-		this.projectPlan = projectPlan;
+	public void setProjectPlanId(long projectPlanId) {
+		this.projectPlanId = projectPlanId;
 	}
 
 }

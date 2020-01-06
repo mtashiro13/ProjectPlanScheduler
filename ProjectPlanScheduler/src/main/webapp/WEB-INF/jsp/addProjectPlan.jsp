@@ -10,16 +10,21 @@
         <table>
         	<tr>
 	            <td><form:label path="projectName">Project Plan Name</form:label></td>
-	            <td><form:input path="projectName" /></td>
+	            <td><form:input path="projectName" required="true"/></td>
 	        </tr>
 	        <tr>
 	            <td><form:label path="startDate">Project Start Date</form:label></td>
-	            <td><form:input path="startDate" type="datetime-local"/></td>
+	            <td><form:input path="startDate" type="datetime-local" required="true"/></td>
 	        </tr>    
             <c:forEach items="${projectPlanDTO.taskDTOList}" var="task" varStatus="tagStatus">
+            	<tr>
+            		<td><b>Tasks. (Sequence 1 should always be the first task)</b></td>
+            	</tr>
+            	<tr>
+            	</tr>
 		   		<tr>
 			   		<td><form:label path="taskDTOList[${tagStatus.index}].seq"><b>New Task (Task Sequence Number)</b></form:label></td>
-			   		<td><form:input path="taskDTOList[${tagStatus.index}].seq" value="${task.seq}"/></td>
+			   		<td><form:input path="taskDTOList[${tagStatus.index}].seq" value="${task.seq}" readonly="true"/></td>
 		   		</tr>
 		   		<tr>
 			   		<td><form:label path="taskDTOList[${tagStatus.index}].taskName">Task Name</form:label></td>

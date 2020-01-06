@@ -3,6 +3,7 @@ package ProjectPlanScheduler.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class ProjectPlan {
 	private String projectName;
 	private Date startDate;
 	private Date endDate;
-	@OneToMany(mappedBy = "projectPlan")
+	@OneToMany(mappedBy = "projectPlanId", cascade=CascadeType.PERSIST)
 	private List<Task> taskList;
 
 	/**

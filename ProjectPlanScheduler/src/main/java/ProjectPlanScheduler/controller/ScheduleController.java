@@ -1,6 +1,5 @@
 package ProjectPlanScheduler.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class ScheduleController {
 	
 	@RequestMapping(value = "/addProjectPlan.html", method = RequestMethod.POST)
 	public String submitProjectPlan(ProjectPlanDTO projectPlanDTO) {
-		scheduleService.saveProjectPlan(projectPlanDTO);
+		scheduleService.scheduleProject(projectPlanDTO);
 		return ("redirect:/projectPlanList.html");
 	}
 	
